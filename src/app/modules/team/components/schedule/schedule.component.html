@@ -1,0 +1,25 @@
+<div class="bg-gray-100 rounded-lg shadow-md p-6 max-w-3xl mx-auto m-5">
+    <h1 class="text-2xl font-bold mb-6">Schedule</h1>
+    <div *ngFor="let round of scheduleINFO.rounds" class="mb-8">
+      <h2 class="text-xl font-semibold mb-4">Round: {{ round.name }}</h2>
+      <div *ngFor="let fixture of round.fixtures" class="bg-white rounded-lg shadow p-4 mb-4 grid grid-cols-3 items-center">
+        <div class="flex items-center justify-start">
+          <img *ngIf="fixture.participants[0].image_path" [src]="fixture.participants[0].image_path" alt="{{ fixture.participants[0].name }}" class="w-12 h-12 rounded-full mr-2">
+          <span class="font-semibold truncate">{{ fixture.participants[0].name }}</span>
+        </div>
+        <div class="flex justify-center">
+          <span *ngIf="fixture.scores.length > 0" class="text-2xl font-bold">
+            {{ fixture.scores[0].score.goals }} - {{ fixture.scores[1].score.goals }}
+          </span>
+          <span *ngIf="fixture.scores.length === 0" class="text-2xl font-bold text-gray-500">
+            {{ fixture.starting_at | date:'HH:mm' }}
+          </span>
+        </div>
+        <div class="flex items-center justify-end">
+          <span class="font-semibold truncate">{{ fixture.participants[1].name }}</span>
+          <img *ngIf="fixture.participants[1].image_path" [src]="fixture.participants[1].image_path" alt="{{ fixture.participants[1].name }}" class="w-12 h-12 rounded-full ml-2">
+        </div>
+        <div class="text-gray-500 text-sm col-span-3 mt-2">{{ fixture.starting_at | date:'EEE, MMM d, yyyy' }}</div>
+      </div>
+    </div>
+</div>

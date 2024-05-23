@@ -1,0 +1,38 @@
+<div class="flex flex-row justify-between m-10">
+    <div class="flex-1 size-3/12 border-2 rounded-xl  flex-grow-0">
+        <canvas id="matches"></canvas>
+    </div>
+    <div class="flex-1 size-3/12 border-2 rounded-xl flex-grow-0">
+        <canvas id="shots"></canvas>
+    </div>
+    <div class=" border-2 rounded-xl  w-5/12">
+        <canvas id="scoring-minutes"></canvas>
+    </div>
+</div>
+
+<div class="flex flex-col bg-gray-100 rounded-lg p-6 shadow-md mx-10">
+    <h2 class="text-2xl font-bold mb-4 text-gray-800">Statistics Summary</h2>
+    <div class="overflow-x-auto">
+        <table class="w-full table-auto bg-white rounded-lg shadow-md">
+            <thead>
+                <tr class="bg-gray-200 text-gray-600 uppercase text-sm font-semibold">
+                    <th class="py-3 px-6">Statistic Name</th>
+                    <th class="py-3 px-6">Statistic Group</th>
+                    <th class="py-3 px-6">Statistic Value</th>
+                </tr>
+            </thead>
+            <tbody class="text-gray-600 text-sm">
+                <tr *ngFor="let item of DataToTable" class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 px-6 text-gray-800 font-medium flex flex-row items-center">
+                        <div class="w-3 h-3 rounded-full mr-2"
+                            [ngClass]="{'bg-red-500': item.group === 'offensive', 'bg-blue-500': item.group === 'defensive', 'bg-gray-500': item.group === 'overall'}">
+                        </div>
+                        {{ item.type }}
+                    </td>
+                    <td class="py-3 px-6">{{ item.group }}</td>
+                    <td class="py-3 px-6 text-gray-800 font-semibold">{{ item.value }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

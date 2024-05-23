@@ -1,0 +1,32 @@
+<div class="grid grid-cols-4 gap-4 m-2">
+    <div *ngFor="let topscorer of topscorersData" class="bg-white rounded-lg shadow-md">
+      <div class="bg-green-700 rounded-t-lg px-4 py-2 flex items-center justify-between">
+        <div class="flex items-center">
+          <h3 class="text-white font-semibold">{{ topscorer.title }}</h3>
+        </div>
+      </div>
+      <div class="p-4">
+        <ul class="divide-y divide-gray-200">
+          <li *ngFor="let player of topscorer.data" class="py-3 sm:py-4">
+            <div class="flex items-center space-x-4">
+              <div class="flex-shrink-0">
+                <img [src]="player.player.image_path" alt="Player Image" class="h-8 w-8 rounded-full">
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-gray-900 truncate">
+                  {{ player.player.common_name }}
+                </p>
+                <p class="text-sm text-gray-500 truncate">
+                  <img [src]="player.participant.image_path" alt="Team Logo" class="h-4 w-4 inline mr-1">
+                  {{ player.participant.name }}
+                </p>
+              </div>
+              <div class="inline-flex items-center text-base font-semibold text-gray-900">
+                {{ player.total }}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>

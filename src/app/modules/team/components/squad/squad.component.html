@@ -1,0 +1,136 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <h1 class="text-4xl tracking-tight font-bold text-black my-6 text-center">Goalkeepers</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div *ngFor="let player of goalkeepers" class="bg-white rounded-lg shadow-md overflow-hidden">
+      <div class="flex items-center">
+        <div class="relative w-24">
+          <img [src]="player.player.image_path" alt="Player Image" class="w-full h-32 object-cover">
+        </div>
+        <div class="flex-1 p-4">
+          <h2 class="text-lg font-semibold text-gray-900 mb-1">{{ player.player.display_name }}</h2>
+          <p class="text-gray-500 text-sm mb-2">{{ player.position.name }} | #{{ player.jersey_number }}</p>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Appearances</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 321) }}</p>
+            </div>
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Clearances</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 101) }}</p>
+            </div>
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Saves</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 57) }}</p>
+            </div>
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Goals Conceded</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 88) }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <h1 class="text-4xl tracking-tight font-bold text-black my-6 text-center">Defenders</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div *ngFor="let player of defenders" class="bg-white rounded-lg shadow-md overflow-hidden">
+      <div class="flex items-center">
+        <div class="relative w-24">
+          <img [src]="player.player.image_path" alt="Player Image" class="w-full h-32 object-cover">
+        </div>
+        <div class="flex-1 p-4">
+          <h2 class="text-lg font-semibold text-gray-900 mb-1">{{ player.player.display_name }}</h2>
+          <p class="text-gray-500 text-sm mb-2">{{ player.position.name }} | #{{ player.jersey_number }}</p>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Appearances</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 321) }}</p>
+            </div>
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Goals</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 52) }}</p>
+            </div>
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Assists</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 79) }}</p>
+            </div>
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Clearances</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 101) }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <h1 class="text-4xl tracking-tight font-bold text-black my-6 text-center">Midfielders</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div *ngFor="let player of midfielders" class="bg-white rounded-lg shadow-md overflow-hidden">
+      <div class="flex items-center">
+        <div class="relative w-24">
+          <img [src]="player.player.image_path" alt="Player Image" class="w-full h-32 object-cover">
+        </div>
+        <div class="flex-1 p-4">
+          <h2 class="text-lg font-semibold text-gray-900 mb-1">{{ player.player.display_name }}</h2>
+          <p class="text-gray-500 text-sm mb-2">{{ player.position.name }} | #{{ player.jersey_number }}</p>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Appearances</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 321) }}</p>
+            </div>
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Goals</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 52) }}</p>
+            </div>
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Assists</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 79) }}</p>
+            </div>
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Big Chances Created</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 580) }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <h1 class="text-4xl tracking-tight font-bold text-black my-6 text-center">Attackers</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div *ngFor="let player of attackers" class="bg-white rounded-lg shadow-md overflow-hidden">
+      <div class="flex items-center">
+        <div class="relative w-24">
+          <img [src]="player.player.image_path" alt="Player Image" class="w-full h-32 object-cover">
+        </div>
+        <div class="flex-1 p-4">
+          <h2 class="text-lg font-semibold text-gray-900 mb-1">{{ player.player.display_name }}</h2>
+          <p class="text-gray-500 text-sm mb-2">{{ player.position.name }} | #{{ player.jersey_number }}</p>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Appearances</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 321) }}</p>
+            </div>
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Goals</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 52) }}</p>
+            </div>
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Assists</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 79) }}</p>
+            </div>
+            <div>
+              <p class="text-gray-500 text-xs mb-1">Big Chances Created</p>
+              <p class="text-sm font-semibold">{{ getDetailsValue(player, 580) }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

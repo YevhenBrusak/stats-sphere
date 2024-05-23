@@ -1,0 +1,35 @@
+<div class="overflow-x-auto w-10/12 mx-auto mx-10 mt-10">
+  <table class="w-full text-sm text-left text-gray-500 rounded-lg shadow-md">
+    <thead class="text-xs uppercase bg-green-500 text-white">
+      <tr class="font-premier-sans">
+        <th scope="col" class="px-2 py-3 font-semibold">Pos</th>
+        <th scope="col" class="px-6 py-3 font-semibold">Club</th>
+        <th scope="col" class="px-6 py-3 font-semibold"><span>Played</span></th>
+        <th scope="col" class="px-6 py-3 font-semibold"><span>Won</span></th>
+        <th scope="col" class="px-6 py-3 font-semibold"><span>Drawn</span></th>
+        <th scope="col" class="px-6 py-3 font-semibold"><span>Lost</span></th>
+        <th scope="col" class="px-6 py-3 font-semibold"><span>GF</span></th>
+        <th scope="col" class="px-6 py-3 font-semibold"><span>GA</span></th>
+        <th scope="col" class="px-6 py-3 font-semibold"><span>GD</span></th>
+        <th scope="col" class="px-6 py-3 font-semibold"><span>Pts</span></th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200 bg-white">
+      <tr *ngFor="let teamStanding of teamsData" class="hover:bg-gray-100">
+        <td class="px-2 py-4 font-medium text-gray-900 whitespace-nowrap">{{ teamStanding.position }}</td>
+        <td class="px-6 py-4 flex items-center">
+          <img [src]="teamStanding.participant.image_path" alt="{{ teamStanding.participant.name }}" class="w-8 h-8 mr-2 rounded-full">
+          <span class=" flex-1 truncate" [routerLink]="['/team', teamStanding.participant_id, teamStanding.season_id]" style="cursor: pointer;">{{ teamStanding.participant.name }}</span>
+        </td>
+        <td class="px-6 py-4">{{ getDetailsValue(teamStanding, 129) }}</td>
+        <td class="px-6 py-4">{{ getDetailsValue(teamStanding, 130) }}</td>
+        <td class="px-6 py-4">{{ getDetailsValue(teamStanding, 131) }}</td>
+        <td class="px-6 py-4">{{ getDetailsValue(teamStanding, 132) }}</td>
+        <td class="px-6 py-4">{{ getDetailsValue(teamStanding, 133) }}</td>
+        <td class="px-6 py-4">{{ getDetailsValue(teamStanding, 134) }}</td>
+        <td class="px-6 py-4">{{ getDetailsValue(teamStanding, 179) }}</td>
+        <td class="px-6 py-4 font-medium">{{ teamStanding.points }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

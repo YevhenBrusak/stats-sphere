@@ -1,0 +1,28 @@
+<div class="flex flex-col bg-gray-900 py-10">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center">
+      <img class="w-20 h-20 md:w-24 md:h-24 mr-4" [src]="teamInfo.image_path" alt="">
+      <div>
+        <h1 class="text-3xl md:text-5xl font-bold text-white">{{ teamInfo.name }}</h1>
+        <div class="flex items-center mt-3 text-gray-400">
+          <span>Est. {{ teamInfo.founded }}</span>
+          <span class="material-symbols-outlined mx-2">stadium</span>
+          <span>{{ teamInfo.venue.name }} ({{ teamInfo.venue.capacity }})</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="relative mt-8">
+    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+      <div class="w-full border-t border-gray-700"></div>
+    </div>
+    <div class="relative flex justify-center">
+      <nav class="flex space-x-8 bg-gray-900 px-6 py-2 rounded-lg">
+        <a [routerLink]="['team-squad']" [queryParams]="{ teamID: teamID, seasonID: seasonID }" routerLinkActive="bg-green-700 text-white" class="inline-block px-4 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition duration-150">Squad</a>
+        <a [routerLink]="['team-statistic']" [queryParams]="{ teamID: teamID, seasonID: seasonID }" routerLinkActive="bg-green-700 text-white" class="inline-block px-4 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition duration-150">Team Statistic</a>
+        <a [routerLink]="['team-schedule']" [queryParams]="{ teamID: teamID, seasonID: seasonID }" routerLinkActive="bg-green-700 text-white" class="inline-block px-4 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition duration-150">Schedule</a>
+      </nav>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

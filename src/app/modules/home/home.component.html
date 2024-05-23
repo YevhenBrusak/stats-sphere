@@ -1,0 +1,41 @@
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold mb-6">Upcoming Matches</h1>
+    <div class="bg-[#374151] rounded-lg overflow-hidden">
+      <div class="bg-[#4B5563] px-4 py-2">
+        <h2 class="text-lg font-semibold text-white">This Week</h2>
+      </div>
+      <div *ngFor="let match of fixtures" class="px-4 py-2 border-b border-gray-600 last:border-b-0">
+        <div class="flex bg-[#636c78] rounded-lg px-4 py-1 mb-2 items-center ">
+          <img [src]="match.league.image_path" [alt]="match.league.name" class="w-6 h-6 mr-2">
+          <span class="text-sm font-medium text-gray-300">{{ match.league.name }}</span>
+        </div>
+        <div class="grid grid-cols-3 items-center">
+            <div class="flex items-center justify-start ml-4">
+            <img [src]="match.participants[0].image_path" [alt]="match.participants[0].name" class="w-8 h-8 mr-2">
+            <span class="text-base font-semibold text-white">{{ match.participants[0].name }}</span>
+            </div>
+            <div class="flex-1 flex items-center justify-center">
+                <span class="text-sm text-gray-400">{{ match.starting_at | date:'EEEE, MMMM d' }}</span>
+            </div>
+            <div class="flex items-center justify-end mr-4">
+            <span class="text-base font-semibold text-white">{{ match.participants[1].name }}</span>
+            <img [src]="match.participants[1].image_path" [alt]="match.participants[1].name" class="w-8 h-8 ml-2">
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-between mt-4">
+      <button [disabled]="!hasPreviousPage" [ngClass]="{'opacity-50 cursor-not-allowed': !hasPreviousPage}" (click)="loadPreviousPage()" class="inline-flex items-center px-4 py-2 bg-[#4F46E5] hover:bg-[#6366F1] focus:ring-blue-500 focus:ring-offset-blue-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded">
+        <svg class="-ml-0.5 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Previous
+      </button>
+      <button [disabled]="!hasNextPage" [ngClass]="{'opacity-50 cursor-not-allowed': !hasNextPage}" (click)="loadNextPage()" class="inline-flex items-center px-4 py-2 bg-[#4F46E5] hover:bg-[#6366F1] focus:ring-blue-500 focus:ring-offset-blue-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded">
+        Next
+        <svg class="-mr-0.5 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+</div>
